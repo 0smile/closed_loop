@@ -19,3 +19,6 @@ Next we need to use ros2_control, more specifically, gazebo_ros2_control to show
 With above steps, you can visualize your closed loop robot in both gazebo and rviz, and they are synchronized. An issues is when you restart the world, synchronization will lost.
 
 Further, Moveit and Nav may can be applied on closed loop robot. However one thing should be keeped in mind: it still a open loop robot in ros2. 
+  
+## Konwn issue
+If include rviz in launch file, the robot model will not shown in rviz. Launching rviz manually after gazebo can avoid this issue, still seeking for better solutions.
