@@ -52,10 +52,18 @@ def generate_launch_description():
         output='screen'
     )
 
+    rviz_config_file = PathJoinSubstitution([FindPackageShare('closed_loop'), 'rviz', 'closed_loop.rviz'])
+    rviz = Node(
+        package="rviz2",
+        executable="rviz2",
+        arguments=["-d", rviz_config_file]
+    )
+
     nodes = [
         robot_state_pub_node,
         gazebo_spawner,
         load_joint_state_controller,
+        rviz
     ]
 
     return LaunchDescription(
