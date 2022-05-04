@@ -21,4 +21,6 @@ With above steps, you can visualize your closed loop robot in both gazebo and rv
 Further, Moveit and Nav may can be applied on closed loop robot. However one thing should be keeped in mind: it still a open loop robot in ros2. 
   
 ## Konwn issue
-If include rviz in launch file, the robot model will not shown in rviz. Launching rviz manually after gazebo can avoid this issue, still seeking for better solutions.
+1. If include rviz in launch file, the robot model will not shown in rviz. Launching rviz manually after gazebo can avoid this issue, still seeking for better solutions.
+
+2. When restart the gazebo simulation world, synchronization will lost.
