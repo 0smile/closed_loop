@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot 
+    xmlns:xacro="http://www.ros.org/wiki/xacro" >  
+
+    <!-- Macro for gazebo simulation and ros2_control -->
+        <gazebo>
+            <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+                <parameters>$(find closed_loop)/ros2_control_config/robot_state_publisher.yaml</parameters>
+            </plugin>
+        </gazebo>
+
+        <ros2_control name="GazeboSystem" type="system">
+            <hardware>
+                <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+            </hardware>
+        <!-- Joints -->
+        <!-- 1 to world -->
+        <joint name="1_to_world" type="fixed">
+            <command_interface name="position">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+        <!-- 2 to 1 -->
+        <joint name="2_to_1" type="continuous">
+            <command_interface name="position">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+        <!-- 3 to 2 -->
+        <joint name="3_to_2" type="continuous">
+            <command_interface name="position">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+        <!-- 4 to 3 -->
+        <joint name="4_to_3" type="continuous">
+            <command_interface name="position">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+        </ros2_control>
+
+</robot>
